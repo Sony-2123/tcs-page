@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCS Website Layout</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        color: #000;
+    }
+    /* Header */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(90deg, #000428, #004e92);
+        color: #fff;
+        padding: 15px 50px;
+    }
+    header .logo img {
+        height: 40px;
+    }
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul li {
+        margin: 0 15px;
+    }
+    nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #00aaff;
+    }
+    .header-right {
+        display: flex;
+        align-items: center;
+    }
+    .header-right span {
+        margin-right: 15px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+    .header-right span:hover {
+        color: #00aaff;
+    }
+    .header-right img {
+        width: 40px;
+    }
+
+    /* Hero Section */
+    .hero {
+        position: relative;
+        color: #fff;
+        text-align: left;
+        background: #000428;
+    }
+    .hero img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        filter: brightness(50%);
+    }
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        max-width: 600px;
+    }
+    .hero-content h1 {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+    .hero-content p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .hero-content .btn {
+        background: #004e92;
+        color: #fff;
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+    }
+    .hero-content .btn:hover {
+        background: #0077cc;
+    }
+
+    /* Customer Stories */
+    .customer-stories {
+        padding: 50px;
+        background: #f9f9f9;
+    }
+    .customer-stories h2 {
+        margin-bottom: 20px;
+    }
+    .stories-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .story-card {
+        flex: 1;
+        min-width: 300px;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: left;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .story-card:hover {
+        transform: translateY(-8px);
+    }
+    .story-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .story-card h3 {
+        margin: 15px;
+        color: #004e92;
+    }
+    .story-card p {
+        margin: 0 15px 15px;
+    }
+    .story-card a {
+        margin: 15px;
+        display: inline-block;
+        color: #004e92;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    .story-card a:hover {
+        color: #0077cc;
+    }
+
+    /* Industry Section */
+    .industries {
+        background: linear-gradient(90deg, #000428, #004e92);
+        padding: 50px;
+        color: #fff;
+    }
+    .industries h2 {
+        margin-bottom: 20px;
+    }
+    .industry-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 50px;
+    }
+    .industry-list li {
+        list-style: none;
+        padding: 8px 0;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease;
+    }
+    .industry-list li:hover {
+        color: #00aaff;
+        cursor: pointer;
+    }
+    .industry-list li::before {
+        content: '•';
+        color: #00aaff;
+        margin-right: 10px;
+        font-size: 24px;
+    }
+.services-section {
+  padding: 50px;
+  text-align: center;
+}
+
+.services-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.services-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  display: block;
+  width: 250px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.service-card h2 {
+  padding: 15px;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.products-section {
+  padding: 50px;
+  background: linear-gradient(135deg, #000428, #004e92);
+  color: #fff;
+  text-align: center;
+}
+
+.products-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.product-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.product-card i {
+  font-size: 32px;
+  color: #00bfff; /* Light blue icon */
+  min-width: 40px;
+}
+
+.product-card h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.product-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+.newsroom-section {
+  padding: 50px;
+  background: #000428;
+  color: #fff;
+  text-align: center;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.news-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.news-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2));
+}
+
+.news-tag {
+  display: inline-block;
+  background: #fff;
+  color: #000428;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.news-content h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.news-content p {
+  font-size: 0.9rem;
+  color: #00bfff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.news-card:hover img {
+  transform: scale(1.1);
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+
+    .footer {
+      padding: 40px;
+      text-align: center;
+      background-color: #151818;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    
+    }
+
+    .footer h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .social-item {
+      text-align: center;
+    }
+
+    .social-item i {
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+
+    .label {
+      font-size: 12px;
+      color: #aaa;
+      letter-spacing: 1px;
+    }
+
+    .name {
+      font-size: 16px;
+      color: #fff;
+      margin-top: 2px;
+    }
+</style>
+</head>
+<body>
+
+
+<header>
+    <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0DuekHnAyWVadvTeLjNW3_Nvj3K2WnENeUA&s" alt="TCS Logo">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#what-we-do">What we do</a></li>
+            <li><a href="#who-we-are">Who we are</a></li>
+            <li><a href="#insights">Insights</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#newsroom">Newsroom</a></li>
+            <li><a href="#investors">Investors</a></li>
+            <li><a href="#worldwide">Worldwide</a></li>
+        </ul>
+    </nav>
+    <div class="header-right">
+        <span>Contact Us</span>
+        <img src="tata-logo.png" alt="Tata Logo">
+    </div>
+</header>
+
+
+<section class="hero">
+    <img src="https://binmile.com/wp-content/uploads/2023/05/The-Field-of-Artificial-Intelligence.jpg" alt="AI Innovation">
+    <div class="hero-content">
+        <h1>TCS launches AI innovation centre in Singapore</h1>
+        <p>Centre to co-create scalable AI solutions and support Singapore’s Smart Nation vision</p>
+        <a href="#" class="btn">Read More</a>
+    </div>
+</section>
+
+
+<section class="hero" style="margin-top:20px;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrZspMvd_nyhJKCVY_M4JMg4slz44Ga1_lkQ&s" alt="Agility and Innovation">
+    <div class="hero-content">
+        <h1>Enterprises that embrace agility and innovation</h1>
+        <p>Can navigate the shifting global environment with confidence, and redefine success.</p>
+        <a href="#" class="btn">Learn More</a>
+    </div>
+</section>
+
+<!-- Customer Stories -->
+<section class="customer-stories">
+    <h2>Customer Stories</h2>
+    <div class="stories-container">
+        <div class="story-card">
+            <img src="https://s7ap1.scene7.com/is/image/TCSCOMprod/kodl-cust-testimonial-banner-web:Extra-Medium?wid=1025&hei=851&dpr=off" alt="State of Kansas">
+            <h3>State of Kansas</h3>
+            <p>Reimagines unemployment insurance</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="story-card">
+            <img src="https://s7ap1.scene7.com/is/image/TCSCOMprod/digital-transformation-3:Extra-Medium?wid=1025&hei=851&dpr=off" alt="British Council">
+            <h3>British Council</h3>
+            <p>Transforms global professional services</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="story-card">
+            <img src="https://s7ap1.scene7.com/is/image/TCSCOMprod/azure-devops-services-automation-web-2?wid=960&hei=378&dpr=off" alt="US Venture">
+            <h3>U.S. Venture</h3>
+            <p>Takes a digital leap with TCS</p>
+            <a href="#">Read More</a>
+        </div>
+    </div>
+</section>
+
+<section class="industries">
+    <h2>Select your industry. Discover our impact.</h2>
+    <ul class="industry-list">
+        <li>Banking</li>
+        <li>Capital Markets</li>
+        <li>Communications, Media, and Information Services</li>
+        <li>Consumer Packaged Goods and Distribution</li>
+        <li>Education</li>
+        <li>Energy, Resources, and Utilities</li>
+        <li>Healthcare</li>
+        <li>High Tech</li>
+        <li>Insurance</li>
+        <li>Life Sciences</li>
+        <li>Manufacturing</li>
+        <li>Public Services</li>
+        <li>Retail</li>
+        <li>Travel and Logistics</li>
+    </ul>
+</section>
+
+
+<section class="services-section">
+  <h3>SERVICES</h3>
+  <h1>Transform your business with advanced technologies</h1>
+  <div class="services-grid">
+    <a href="https://www.tcs.com/content/dam/global-tcs/en/images/what-we-do/ai-insights-card-2.png/jcr:content/renditions/cq5dam.thumbnail.640.640.png" class="service-card">
+      <img src="https://www.tcs.com/content/dam/global-tcs/en/images/what-we-do/ai-insights-card-2.png/jcr:content/renditions/cq5dam.thumbnail.640.640.png" alt="AI and Data & Analytics">
+      <h2>AI and Data & Analytics</h2>
+    </a>
+    <a href="https://www.tcs.com/what-we-do/services/cloud" class="service-card">
+      <img src="https://www.tcs.com/content/dam/global-tcs/ja/images/insights/trends/cloud-business-case-model-transformation/card.jpg/jcr:content/renditions/cq5dam.thumbnail.640.640.jpeg" alt="Cloud">
+      <h2>Cloud</h2>
+    </a>
+    <a href="https://www.tcs.com/what-we-do/services/cognitive-business-operations" class="service-card">
+      <img src="https://www.tcs.com/content/dam/global-tcs/en/images/who-we-are/inverstor-relations-poster.png/jcr:content/renditions/cq5dam.thumbnail.640.640.png" alt="Cognitive Business Operations">
+      <h2>Cognitive Business Operations</h2>
+    </a>
+    <a href="https://www.tcs.com/what-we-do/services/consulting" class="service-card">
+      <img src="https://www.tcs.com/content/dam/global-tcs/en/images/what-we-do/industries/travel/case-study/maersk-cloud-iot-platform-automate-reefer-monitoring-system-u-card.jpg/jcr:content/renditions/cq5dam.thumbnail.640.640.jpeg" alt="Consulting">
+      <h2>Consulting</h2>
+    </a>
+  </div>
+</section>
+
+
+<!-- Include Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<section class="products-section">
+  <h3>PRODUCTS AND PLATFORMS</h3>
+  <h1>Cutting edge solutions to power up your business.</h1>
+  <div class="products-grid">
+    <a href="https://www.tcs.com/what-we-do/products-platforms/omni-store" class="product-card">
+      <i class="fas fa-store"></i>
+      <div>
+        <h2>TCS OMNISTORE™</h2>
+        <p>The Foundation for Future Commerce. Unified. Ubiquitous. Intelligent.</p>
+      </div>
+    </a>
+
+    <a href="https://www.tcs.com/what-we-do/products-platforms/add" class="product-card">
+      <i class="fas fa-flask"></i>
+      <div>
+        <h2>TCS ADD™</h2>
+        <p>Modern and open technology platforms for clinical research and drug development.</p>
+      </div>
+    </a>
+
+    <a href="https://www.tcs.com/what-we-do/products-platforms/bancs" class="product-card">
+      <i class="fas fa-university"></i>
+      <div>
+        <h2>TCS BaNCS™</h2>
+        <p>Growth and Transformation in Insurance Enabled by Intelligent, Digital Solutions.</p>
+      </div>
+    </a>
+
+    <a href="https://www.tcs.com/what-we-do/products-platforms/bfsi" class="product-card">
+      <i class="fas fa-chart-line"></i>
+      <div>
+        <h2>TCS BFSI Platforms</h2>
+        <p>Power the Banking, Financial Services, Insurance Customer Journey.</p>
+      </div>
+    </a>
+
+    <a href="https://www.tcs.com/what-we-do/products-platforms/chroma" class="product-card">
+      <i class="fas fa-users"></i>
+      <div>
+        <h2>TCS Chroma™</h2>
+        <p>Harness talent, collaborative work culture, invisible HR.</p>
+      </div>
+    </a>
+
+    <a href="https://www.tcs.com/what-we-do/products-platforms/customer-intelligence" class="product-card">
+      <i class="fas fa-user-check"></i>
+      <div>
+        <h2>TCS Customer Intelligence™</h2>
+        <p>Deliver personalized experiences to build loyalty and drive growth.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="newsroom-section">
+  <h3>News & Updates</h3>
+  <div class="news-grid">
+    
+    <!-- News Card 1 -->
+    <a href="https://www.tcs.com/content/tcs/global/en/who-we-are/newsroom" class="news-card">
+      <img src="https://s7ap1.scene7.com/is/image/TCSCOMprod/tcs-marquee-sponsor-microsoft-ignite-2024-web:Extra-Medium?wid=1025&hei=851&dpr=off" alt="Newsroom Image">
+      <div class="news-content">
+        <span class="news-tag">Newsroom</span>
+        <h2>Stay up-to-date with the latest TCS news</h2>
+        <p><i class="fas fa-newspaper"></i> READ MORE</p>
+      </div>
+    </a>
+    
+    <!-- News Card 2 -->
+    <a href="https://www.tcs.com/content/tcs/global/en/who-we-are/newsroom/press-release" class="news-card">
+      <img src="https://s7ap1.scene7.com/is/image/TCSCOMprod/brand-cross-20bn-brand-value-web:Extra-Medium?wid=1025&hei=851&dpr=off" alt="Press Release Image">
+      <div class="news-content">
+        <span class="news-tag">Press Release</span>
+        <h2>TCS becomes 2nd IT brand worth over $20 billion</h2>
+        <p><i class="fas fa-newspaper"></i> READ MORE</p>
+      </div>
+    </a>
+    
+    <!-- News Card 3 -->
+    <a href="https://www.tcs.com/content/tcs/global/en/who-we-are/analyst-relations" class="news-card">
+      <img src="https://s7ap1.scene7.com/is/image/TCSCOMprod/SLP:Extra-Medium?wid=1025&hei=851&dpr=off" alt="Analyst Relations Image">
+      <div class="news-content">
+        <span class="news-tag">Analyst Relations</span>
+        <h2>Analysts recognize TCS as a cross-industry leader</h2>
+        <p><i class="fas fa-newspaper"></i> READ MORE</p>
+      </div>
+    </a>
+    
+  </div>
+</section>
+
+
+  <div class="footer">
+    <div class="label">SOCIAL</div>
+    <h2>Follow us for the latest updates</h2>
+    <div class="social-icons">
+      <div class="social-item">
+        <i class="fab fa-facebook-f"></i>
+        <div class="label">FACEBOOK</div>
+        <div class="name">TCS</div>
+      </div>
+      <div class="social-item">
+        <i class="fab fa-x-twitter"></i>
+        <div class="label">X</div>
+        <div class="name">TCS</div>
+      </div>
+      <div class="social-item">
+        <i class="fab fa-youtube"></i>
+        <div class="label">YOUTUBE</div>
+        <div class="name">tcsglobal</div>
+      </div>
+      <div class="social-item">
+        <i class="fab fa-instagram"></i>
+        <div class="label">INSTAGRAM</div>
+        <div class="name">tcsglobal</div>
+      </div>
+      <div class="social-item">
+        <i class="fab fa-linkedin-in"></i>
+        <div class="label">LINKEDIN</div>
+        <div class="name">TCS</div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
